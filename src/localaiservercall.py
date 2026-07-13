@@ -12,9 +12,9 @@ from openai import OpenAI
 # - tool_calls
 # - reasoning
 
-def server_call(ai_url, ai_model, prompt, system_prompt, temp):
+def server_call(ai_url, api_key, ai_model, prompt, system_prompt, temp):
 
-    client = OpenAI(base_url=ai_url, api_key="not_needed") #client call to server
+    client = OpenAI(base_url=ai_url, api_key=api_key) #client call to server
 
     completion = client.chat.completions.create(
         model=ai_model,

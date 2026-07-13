@@ -10,31 +10,30 @@
 #calling functions
 from localaiservercall import server_call
 from bat_ascii import bat_ascii
-from printresponse import printresponse
 from clearscr import clear_console
 from config.config import config
 
 def main():
 
     #load configuration
-    ai_url, ai_model, system_prompt, temp, stream_speed = config()
+    ai_url, api_key, ai_model, system_prompt, temp, stream_speed = config()
 
     #initializing empty response
     response = ""
 
     while 1 == 1:
-        clear_console()
-        bat_ascii(True, False, False)
-        print(response)
 
+        clear_console()
+        bat_ascii(True, False, False, response, stream_speed) #idle
+        
         prompt = input("chat: ")
-        clear_console()
-        bat_ascii(False, False, True)
-        response = server_call(ai_url, ai_model, prompt, system_prompt, temp)
 
         clear_console()
-        bat_ascii(False, True, False)
-        printresponse(response, stream_speed)
+        bat_ascii(False, True, False, response, stream_speed) #thinking
+        response = server_call(ai_url, api_key, ai_model, prompt, system_prompt, temp)
+
+        clear_console()
+        bat_ascii(False, False, True, response, stream_speed)
 
 if __name__ == "__main__":
     main()

@@ -11,6 +11,9 @@ def config():
     ai_url = "http://10.0.0.248:1234/v1"
 
     #String
+    api_key = "not needed"
+
+    #String
     ai_model = "openai/gpt-oss-20b"
 
     #String
@@ -26,4 +29,4 @@ def config():
     #Double
     stream_speed = 0.03
 
-    return ai_url, ai_model, system_prompt, temperature, stream_speed
+    return ai_url, api_key, ai_model, system_prompt, temperature, stream_speed
