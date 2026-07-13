@@ -8,25 +8,25 @@ def config():
     #AI SETTINGS:
 
     #String
-    ai_url = "http://10.0.0.248:1234/v1"
+    ai_url = ""
 
     #String
-    api_key = "not needed"
+    api_key = ""
 
     #String
-    ai_model = "openai/gpt-oss-20b"
+    ai_model = ""
 
     #String
     system_prompt = "you are a helpfull assistant and you cut to the chase with responses. no filler words. you keep responses short and sweet"
 
-    #Double
+    #Double DEFAULT = 0.8
     temperature = 0.8
 
     ################################################################################################################
 
     #OUTPUT SETTINGS:
 
-    #Double
+    #Double DEFAULT 0.03
     stream_speed = 0.03
 
     return ai_url, api_key, ai_model, system_prompt, temperature, stream_speed
