@@ -7,6 +7,8 @@
 #venv is located in venv file under home
 #activate it using command: source /home/matt/venv/python/local_ai_friend_env/bin/activate.fish
 
+#bat_ascii boolean calls (Idle, thinking, talking) ONLY ONE SHOULD BE TRUE AT A TIME
+
 #calling functions
 from localaiservercall import server_call
 from bat_ascii import bat_ascii
@@ -33,7 +35,7 @@ def main():
         response = server_call(ai_url, api_key, ai_model, prompt, system_prompt, temp)
 
         clear_console()
-        bat_ascii(False, False, True, response, stream_speed)
+        bat_ascii(False, False, True, response, stream_speed) #talking
 
 if __name__ == "__main__":
     main()
