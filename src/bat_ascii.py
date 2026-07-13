@@ -14,7 +14,7 @@ def bat_ascii(idle, thinking, talking, response, stream_speed):
         print("|               |")
         print("|               |")
         print("|   0       0   |")
-        print("|       " + mouth + "       |")
+        print("|      " + mouth + "        |")
         print("|_______________|")
         print("      |   |      ")
         print("     /|___|\     ")
@@ -67,5 +67,3 @@ def bat_ascii(idle, thinking, talking, response, stream_speed):
             print(full_response)
             time.sleep(stream_speed)
             clear_console()
-
-        #talking bat is located in printresponse.py

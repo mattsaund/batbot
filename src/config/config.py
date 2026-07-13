@@ -1,4 +1,3 @@
-
 def config():
 
     ###
@@ -19,7 +18,7 @@ def config():
     #String
     system_prompt = "you are a helpfull assistant and you cut to the chase with responses. no filler words. you keep responses short and sweet"
 
-    #Double DEFAULT = 0.8
+    #Double DEFAULT 0.8
     temperature = 0.8
 
     ################################################################################################################
