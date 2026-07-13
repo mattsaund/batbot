@@ -9,37 +9,32 @@
 
 #calling functions
 from localaiservercall import server_call
-from bat_idle import bat_idle
-from bat_thinking import bat_thinking
-from bat_talking import bat_talking
+from bat_ascii import bat_ascii
 from printresponse import printresponse
 from clearscr import clear_console
+from config.config import config
 
 def main():
 
-    #ai config
-    ai_url = "http://10.0.0.248:1234/v1"
-    ai_model = "openai/gpt-oss-20b"
-    system_prompt = "you are a helpfull assistant and you cut to the chase with responses. no filler words. you keep responses short and sweet"
-    temp = 0.8
+    #load configuration
+    ai_url, ai_model, system_prompt, temp, stream_speed = config()
+
+    #initializing empty response
     response = ""
-
-    #output config
-    stream_speed = 0.05
-
 
     while 1 == 1:
         clear_console()
-        bat_idle()
+        bat_ascii(True, False, False)
         print(response)
 
         prompt = input("chat: ")
+        clear_console()
+        bat_ascii(False, False, True)
         response = server_call(ai_url, ai_model, prompt, system_prompt, temp)
 
         clear_console()
-        bat_talking()
+        bat_ascii(False, True, False)
         printresponse(response, stream_speed)
-
 
 if __name__ == "__main__":
     main()

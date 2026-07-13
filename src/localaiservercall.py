@@ -1,6 +1,4 @@
 from openai import OpenAI
-from bat_thinking import bat_thinking
-from clearscr import clear_console
 
 #Calling local AI and formatting message and response using the chat completions api
 
@@ -14,11 +12,7 @@ from clearscr import clear_console
 # - tool_calls
 # - reasoning
 
-
 def server_call(ai_url, ai_model, prompt, system_prompt, temp):
-
-    clear_console()
-    bat_thinking()
 
     client = OpenAI(base_url=ai_url, api_key="not_needed") #client call to server
 
