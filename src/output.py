@@ -3,7 +3,7 @@ import os
 import sys
 from clearscr import clear_console
     
-def bat_idle(response, i, user_chat_history, batbot_chat_history):
+def bat_idle(i, user_chat_history, batbot_chat_history):
 
     #clear_console()
     
@@ -57,7 +57,7 @@ def bat_thinking(thinking, i, user_chat_history, batbot_chat_history):
     print("Thinking...".rjust(terminal_width))
 
 
-def bat_talking(response, stream_speed, i, user_chat_history, batbot_chat_history):
+def bat_talking(stream_speed, i, user_chat_history, batbot_chat_history):
 
     #clear_console()
 
@@ -65,9 +65,8 @@ def bat_talking(response, stream_speed, i, user_chat_history, batbot_chat_histor
     mswitch = True
     terminal_width = os.get_terminal_size().columns
     c = 0 #local counter
-
     
-    for char in response:
+    for char in batbot_chat_history[i]:
 
         full_response += char
 
@@ -80,18 +79,18 @@ def bat_talking(response, stream_speed, i, user_chat_history, batbot_chat_histor
             mouth = "-"
 
 
-        while c < i:
+        while c <= i:
             print("User")
             print(user_chat_history[c])
             print("Batbot".rjust(terminal_width))
             print(batbot_chat_history[c].rjust(terminal_width))
             c += 1
+
         if c >= i:
             c = 0
 
-
-        print("Batbot".rjust(terminal_width))
-        print(full_response.rjust(terminal_width))
+        #print("Batbot".rjust(terminal_width))
+        #print(full_response.rjust(terminal_width))
         print(" _______________ ".rjust(terminal_width))
         print("|               |".rjust(terminal_width))
         print("|               |".rjust(terminal_width))
@@ -105,3 +104,4 @@ def bat_talking(response, stream_speed, i, user_chat_history, batbot_chat_histor
 
         time.sleep(stream_speed)
         clear_console()
+

@@ -5,7 +5,7 @@
 #Maybe create a thinking bubble for Bat
 
 #venv is located in venv file under home
-#activate it using command: source /home/matt/venv/python/local_ai_friend_env/bin/activate.fish
+#activate it using command: source /home/matt/venv/python/batbot_venv/bin/activate.fish
 
 #bat_ascii boolean calls (Idle, thinking, talking) ONLY ONE SHOULD BE TRUE AT A TIME
 
@@ -21,8 +21,6 @@ def main():
     ai_url, api_key, ai_model, system_prompt, temp, stream_speed = config()
 
     #initializing empty response and think
-    prompt = ""
-    response = ""
     think = ""
 
     #init chat histories
@@ -35,7 +33,7 @@ def main():
     while 1 == 1:
 
         clear_console()
-        output.bat_idle(response, i, user_chat_history, batbot_chat_history)
+        output.bat_idle(i, user_chat_history, batbot_chat_history)
 
         prompt = input("chat: ")
         user_chat_history.append(prompt)
@@ -51,7 +49,7 @@ def main():
         #####################################################################
 
         clear_console()
-        output.bat_talking(response, stream_speed, i, user_chat_history, batbot_chat_history)
+        output.bat_talking(stream_speed, i, user_chat_history, batbot_chat_history)
         i += 1
 
 if __name__ == "__main__":
