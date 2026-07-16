@@ -9,7 +9,7 @@ def config():
     #String
     ai_url = ""
 
-    #String
+    #String - Write "not needed" if you dont need an api key
     api_key = ""
 
     #String
@@ -29,3 +29,5 @@ def config():
     stream_speed = 0.03
 
     return ai_url, api_key, ai_model, system_prompt, temperature, stream_speed
+
+    #OTHER AI MODELS: "zai-org/glm-4.7-flash"

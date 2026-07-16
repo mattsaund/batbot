@@ -11,31 +11,48 @@
 
 #calling functions
 from localaiservercall import server_call
-from bat_ascii import bat_ascii
-from clearscr import clear_console
+import output
 from config.config import config
+from clearscr import clear_console
 
 def main():
 
     #load configuration
     ai_url, api_key, ai_model, system_prompt, temp, stream_speed = config()
 
-    #initializing empty response
+    #initializing empty response and think
+    prompt = ""
     response = ""
+    think = ""
+
+    #init chat histories
+    user_chat_history = []
+    batbot_chat_history = []
+
+    #init chat history loop
+    i = 0
 
     while 1 == 1:
 
         clear_console()
-        bat_ascii(True, False, False, response, stream_speed) #idle
-        
+        output.bat_idle(response, i, user_chat_history, batbot_chat_history)
+
         prompt = input("chat: ")
+        user_chat_history.append(prompt)
+
+        #####################################################################
 
         clear_console()
-        bat_ascii(False, True, False, response, stream_speed) #thinking
+        output.bat_thinking(think, i, user_chat_history, batbot_chat_history)
+
         response = server_call(ai_url, api_key, ai_model, prompt, system_prompt, temp)
+        batbot_chat_history.append(response)
+
+        #####################################################################
 
         clear_console()
-        bat_ascii(False, False, True, response, stream_speed) #talking
+        output.bat_talking(response, stream_speed, i, user_chat_history, batbot_chat_history)
+        i += 1
 
 if __name__ == "__main__":
     main()

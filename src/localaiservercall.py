@@ -25,8 +25,8 @@ def server_call(ai_url, api_key, ai_model, prompt, system_prompt, temp):
         temperature = temp,
     )
 
-#    think = str(completion.choices[0].message.reasoning)#turning the thinking into string
+    #think = str(completion.choices[0].message.reasoning)#turning the thinking into string
     response = str(completion.choices[0].message.content) #turning response into string
 
-
     return response
+    #return response, think
