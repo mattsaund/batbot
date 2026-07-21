@@ -7,7 +7,7 @@
 #venv is located in venv file under home
 #activate it using command: source /home/matt/venv/python/batbot_venv/bin/activate.fish
 
-#bat_ascii boolean calls (Idle, thinking, talking) ONLY ONE SHOULD BE TRUE AT A TIME
+#TO RUN IN TERMINAL: /home/matt/.venv/python/batbot_venv/bin/python main.py
 
 #calling functions
 from localaiservercall import server_call
